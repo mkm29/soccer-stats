@@ -1,0 +1,9 @@
+#Ansible Playbook to run Tomcat
+---
+- name: Maven build
+  hosts: "18.234.193.39"
+  become: yes
+  become_user: ec2-user
+  tasks:
+    - name: Build executable
+      shell: mvn clean install

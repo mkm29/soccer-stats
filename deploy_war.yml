@@ -1,7 +1,7 @@
 #Ansible Playbook to run Tomcat
 ---
 - name: Deploy to Tomcat
-  hosts: "18.234.193.39"
+  hosts: "52.91.150.173"
   become: yes
   become_user: ec2-user
   tasks:

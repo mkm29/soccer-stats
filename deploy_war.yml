@@ -1,13 +1,15 @@
 #Ansible Playbook to run Tomcat
 ---
 - name: Deploy to Tomcat
-  hosts: "52.91.150.173"
+  hosts: tomcat
   become: yes
   become_user: ec2-user
   tasks:
     - name: Deploy WAR file
       ansible.builtin.copy:
-        src: ./target/soccer-stats-0.0.2.war
-        dest: /usr/src/app
-    - name: Pull and run Tomcat
-      shell: "docker run -p 80:8080 -v /usr/src/app:/usr/local/tomcat/webapps tomcat:8.0-alpine"
+        src: ./target/*.jar
+        dest: /home/ec2-user/
+    - name: Copy executable to Tomcat container
+      shell: "docker cp /home/ec2-user/simple.jar tomcat:/usr/local/tomcat/webapps"
+    - name: Restart Container
+      shell: "docker restart tomcat"

@@ -1,8 +1,6 @@
 ---
 - name: Maven build
   hosts: localhost
-  become: yes
-  become_user: ec2-user
   tasks:
     - name: Build executable
       shell: mvn clean install > log-file.log

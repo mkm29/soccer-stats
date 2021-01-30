@@ -3,4 +3,4 @@
   hosts: localhost
   tasks:
     - name: Build executable
-      shell: /var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/m3/bin/mvn clean package > log-file.log
+      shell: mvn clean package > log-file.log

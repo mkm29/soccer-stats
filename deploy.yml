@@ -6,8 +6,8 @@
   - name: Deploy WAR file
     ansible.builtin.copy:
       src: ./target/soccer-stats-0.0.2.war
-      dest: /home/ec2-user/soccer.war
+      dest: /home/ubuntu/soccer.war
   - name: Copy executable to Tomcat container
-    shell: "docker cp /home/ec2-user/soccer.war tomcat:/usr/local/tomcat/webapps"
+    shell: "docker cp /home/ubuntu/soccer.war tomcat:/usr/local/tomcat/webapps"
   - name: Restart Container
     shell: "docker restart tomcat"

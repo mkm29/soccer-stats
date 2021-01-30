@@ -1,0 +1,6 @@
+---
+- hosts: tomcat
+  become: true
+  tasks:
+  - name: Connect and echo
+    shell: "echo connected"
